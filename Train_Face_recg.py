@@ -22,3 +22,11 @@ enco={"faces_encoded":faces_encoded,"known_face_names":known_face_names}
 f=open('9save',"wb")
 f.write(pickle.dumps(enco))
 f.close()
+
+#uncomment and run this only for the first time for creating csv file with 2 fields(name and date)
+"""import csv
+fields=['Name','Date and Time']
+f=open('Employee_Details.csv','w')
+with f:
+    csvwriter=csv.writer(f)
+    csvwriter.writerow(fields)"""
