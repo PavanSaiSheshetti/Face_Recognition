@@ -6,6 +6,7 @@ import face_recognition
 import numpy as np
 import pickle
 import datetime
+import csv
 
 def authenticate():
  def unknown_image_encoded(img):
@@ -44,16 +45,37 @@ def authenticate():
     return img,face_names,date_time_list
     #return img
 
- cap = cv2.VideoCapture(0) 
+ def csvdata(x,y):
+    rows=[[x,y]]
+    f=open('Employee_Details.csv','a')
+    with f:
+        csvwriter=csv.writer(f)
+        csvwriter.writerows(rows)
+
+        
+ cap = cv2.VideoCapture(0)
  while True: 
         ret,img = cap.read()
         img,face_names,date_time_list=classify_face(img)
         #img=classify_face(img)
         cv2.imshow('Face_Recognition',img)
-        print(face_names,end="")
-        st.text(face_names)
-        st.text(date_time_list)
-        print(date_time_list)
+        if face_names!=[]:
+          #print(*face_names,sep=",")
+          #st.text(face_names)
+          for i in face_names:
+          #if "Unknown" not in face_names:
+             if i=="Unknown":
+               print(i)
+               print(date_time_list)
+               st.text(i)
+               st.text(date_time_list)
+               csvdata(i,date_time_list)
+             else:
+               print("{} You are Authorized Person to Enter".format(i))
+               print(date_time_list)
+               st.text(i+" You are Authorized Person to Enter")
+               st.text(date_time_list)
+               csvdata(i,date_time_list)
         if cv2.waitKey(1) & 0xFF == ord('p'):
            break
  cap.release()    
