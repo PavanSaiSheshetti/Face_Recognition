@@ -17,7 +17,7 @@ This model has an accuracy of 99.38%.
 Motivation:
 
 This is Industrial project at NTPC,Ramagundam. We went there for the Internship and we found a problem there.There will be many key places in NTPC 
-where unauthorized people are not allowed as it even ends their life there. So we come up with a solution and selected dlibs art of state algorithm that will 
+where unauthorized people are not allowed as it even ends their life there. So we come up with a solution to detect authorized people and allow them and selected dlibs art of state algorithm that will 
 give High accuracy(99.38%).
 
 Technical Aspect:
@@ -43,9 +43,8 @@ will be loaded from save9 file.
 save9 file.
 
 => We attempt to match each face in the input image (encoding ) to our known encodings dataset using face_recognition.compare_faces
-. Internally, the 
+. Internally, the compare_faces function is computing the Euclidean distance between the candidate embedding and all faces in our dataset. 
 
-compare_faces function is computing the Euclidean distance between the candidate embedding and all faces in our dataset. 
 =>If the distance is below some tolerance (the smaller the tolerance, the more strict our facial recognition system will be) then we return True , 
 indicating the faces match. Otherwise, if the distance is above the tolerance threshold we return False as the faces do not match.
 
