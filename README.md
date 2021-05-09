@@ -32,25 +32,31 @@ Working Procedure of model:
 
 =>First of all ,the model will take face encodings and name for each image(name of image) from the dataset that contains all the employee images and 
 saves it into a file(save9) using pickling.
+
 =>Then,image from the live video capture after opening the webcame will be passed to classify face() function that uses opencv. Where the face encodings of the dataset 
 will be loaded from save9 file.
+
 =>Now the Encodings of the unknown image that we passed will be determined and will be compared with the Known face encoding that are saved in 
 save9 file.
+
 => We attempt to match each face in the input image (encoding ) to our known encodings dataset using face_recognition.compare_faces
 . Internally, the 
+
 compare_faces function is computing the Euclidean distance between the candidate embedding and all faces in our dataset. 
 =>If the distance is below some tolerance (the smaller the tolerance, the more strict our facial recognition system will be) then we return True , 
-indicating the faces match.
-Otherwise, if the distance is above the tolerance threshold we return False as the faces do not match.
+indicating the faces match. Otherwise, if the distance is above the tolerance threshold we return False as the faces do not match.
+
 =>The best match will ba taken and the returned name will be displayed on the screen below the region of interest of the face. If there is no match then 
 Unknown will be shown on the face.  
+
 (Names will be pushed into csv file along with the time stamp. This whole machine learning model is deployed into a website using streamlit that runs 
 on local host.)
 
 Installation:
+
 The Code is written in Python 3.9. If you don't have Python installed you can find it [here](https://www.python.org/downloads/). If you are using a lower version of Python 
 you can upgrade using the pip package, ensuring you have the latest version of pip. To install the required packages and libraries, run this command in the project directory 
-after [cloning]() the repository:
+after [cloning](https://github.com/PavanSaiSheshetti/Face_Recognition/) the repository:
 
 (First [create](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/) an environment for your project)
 
@@ -71,8 +77,7 @@ Uncomment some code that is specified in Train_Face_recg and run it )
 
 Bug / Feature Request:
 
-If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/PavanSaiSheshetti/Face_Recognition/issues/new) 
-by including your search query and the expected result.
+If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/PavanSaiSheshetti/Face_Recognition/issues/new) by including your search query and the expected result.
 
 
 Technologies Used:
