@@ -1,7 +1,6 @@
 import face_recognition as fr
 import os
 import cv2
-import face_recognition
 import numpy as np
 import pickle
 
@@ -10,7 +9,7 @@ def unknown_image_encoded(img):
     encoding = fr.face_encodings(face)[0]
     return encoding
 
-def classify_face(im):
+def classify_face(img):
     faces = pickle.loads(open('9save','rb').read())
 
     face_locations = fr.face_locations(img)
@@ -20,7 +19,7 @@ def classify_face(im):
     for face_encodings in unknown_face_encodings:
         matches = fr.compare_faces(faces["faces_encoded"],face_encodings)
         name = "Unknown"
-        face_distances = face_recognition.face_distance(faces["faces_encoded"],face_encodings)
+        face_distances = fr.face_distance(faces["faces_encoded"],face_encodings)
         best_match_index = np.argmin(face_distances)
         if matches[best_match_index]:
             name = faces["known_face_names"][best_match_index]
@@ -32,13 +31,11 @@ def classify_face(im):
             font = cv2.FONT_HERSHEY_DUPLEX
             cv2.putText(img,name,(left-20,bottom+15),font,1.0, (255,255,255),2)
     return img,face_names
-    #return img
 
-cap = cv2.VideoCapture(1) 
+cap = cv2.VideoCapture(0) 
 while True: 
         ret,img = cap.read()
         img,face_names=classify_face(img)
-        #img=classify_face(img)
         cv2.imshow('Face_Recognition',img)
         print(face_names)
         if cv2.waitKey(1) & 0xFF == ord('p'):
