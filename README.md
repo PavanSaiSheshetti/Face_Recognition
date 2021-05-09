@@ -4,6 +4,7 @@ Machine Learning Project : Employee Authentication WebApp
 
 Demo Results:
 ![Screen shot](Results/#1.png)
+<img src="Results/#1.png">
 ![Screen shot](Results/#2.png)
 ![Screen shot](Results/#3.png)
 
