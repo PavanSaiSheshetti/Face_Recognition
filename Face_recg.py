@@ -4,11 +4,6 @@ import cv2
 import numpy as np
 import pickle
 
-def unknown_image_encoded(img):
-    face = fr.load_image_file("dataset/"+ img)
-    encoding = fr.face_encodings(face)[0]
-    return encoding
-
 def classify_face(img):
     faces = pickle.loads(open('9save','rb').read())
 
@@ -42,4 +37,3 @@ while True:
            break
 cap.release()    
 cv2.destroyAllWindows()
-        
