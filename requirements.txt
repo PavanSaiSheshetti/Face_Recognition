@@ -1,5 +1,6 @@
 absl-py==0.12.0
 altair==4.1.0
+pandas==1.2.4
 argon2-cffi==20.1.0
 astor==0.8.1
 astunparse==1.6.3
@@ -58,7 +59,6 @@ oauthlib==3.1.0
 opencv-python==4.5.1.48
 opt-einsum==3.3.0
 packaging==20.9
-pandas==1.2.4
 pandocfilters==1.4.3
 parso==0.8.2
 pickleshare==0.7.5
