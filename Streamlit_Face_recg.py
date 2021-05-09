@@ -1,10 +1,9 @@
-import streamlit as st 
 import face_recognition as fr
 import os
 import cv2
-import face_recognition
 import numpy as np
 import pickle
+import streamlit as st 
 import datetime
 import csv
 
@@ -14,7 +13,7 @@ def authenticate():
     encoding = fr.face_encodings(face)[0]
     return encoding
 
- def classify_face(im):
+ def classify_face(img):
     faces = pickle.loads(open('9save','rb').read())
 
     face_locations = fr.face_locations(img)
@@ -25,7 +24,7 @@ def authenticate():
     for face_encodings in unknown_face_encodings:
         matches = fr.compare_faces(faces["faces_encoded"],face_encodings)
         name = "Unknown"
-        face_distances = face_recognition.face_distance(faces["faces_encoded"],face_encodings)
+        face_distances = fr.face_distance(faces["faces_encoded"],face_encodings)
         best_match_index = np.argmin(face_distances)
         if matches[best_match_index]:
             name = faces["known_face_names"][best_match_index]
@@ -43,7 +42,6 @@ def authenticate():
             font = cv2.FONT_HERSHEY_DUPLEX
             cv2.putText(img,name,(left-20,bottom+15),font,1.0, (255,255,255),2)
     return img,face_names,date_time_list
-    #return img
 
  def csvdata(x,y):
     rows=[[x,y]]
@@ -54,16 +52,13 @@ def authenticate():
 
         
  cap = cv2.VideoCapture(0)
+#1 for External Webcam
  while True: 
         ret,img = cap.read()
         img,face_names,date_time_list=classify_face(img)
-        #img=classify_face(img)
         cv2.imshow('Face_Recognition',img)
         if face_names!=[]:
-          #print(*face_names,sep=",")
-          #st.text(face_names)
           for i in face_names:
-          #if "Unknown" not in face_names:
              if i=="Unknown":
                print(i)
                print(date_time_list)
@@ -82,7 +77,6 @@ def authenticate():
  cv2.destroyAllWindows()
 
 def main():
-    #st.title("Employee Authentication")
     html_temp = """
     <div style="background-color:tomato;padding:10px">
     <h2 style="color:white;text-align:center;">Employee Authentication WebApp</h2>
