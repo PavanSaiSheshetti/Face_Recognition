@@ -3,6 +3,9 @@ Machine Learning Project : Employee Authentication WebApp
 
 
 Demo Results:
+![Screen shot](https://github.com/PavanSaiSheshetti/Face_Recognition/tree/master/Results/#1.png)
+![Screen shot](https://github.com/PavanSaiSheshetti/Face_Recognition/tree/master/Results/#2.png)
+![Screen shot](https://github.com/PavanSaiSheshetti/Face_Recognition/tree/master/Results/#3.png)
 
 
 Overview:
