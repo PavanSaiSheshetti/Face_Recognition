@@ -47,7 +47,7 @@ def authenticate():
         csvwriter.writerows(rows)
 
         
- cap = cv2.VideoCapture(0)
+ cap = cv2.VideoCapture(-1)
 #1 for External Webcam
  while True: 
         ret,img = cap.read()
