@@ -10,7 +10,7 @@
 
 ## Overview:
 
-This is a simple Machine Learning Model. We have used CNN based dlibs art of state algorithm that built with deep learning in this project. 
+This is a simple Machine Learning Model. We have used CNN based dlib's state-of-the-art algorithm that built with deep learning in this project. 
 This Machine learning model detect and recognizes the person in live video capturing and also upload the name of Employee and time stamp to CSV file.
 This model has an accuracy of 99.38%.
 
