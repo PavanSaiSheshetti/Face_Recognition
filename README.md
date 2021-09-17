@@ -3,9 +3,9 @@
 
 ## Demo Results:
 
-![Screen shot](Results/#1.png)
-![Screen shot](Results/#2.png)
-![Screen shot](Results/#3.png)
+![Screen shot](https://github.com/PavanSaiSheshetti/Face_Recognition/blob/master/Results/%231.png)
+![Screen shot](https://github.com/PavanSaiSheshetti/Face_Recognition/blob/master/Results/%232.png)
+![Screen shot](https://github.com/PavanSaiSheshetti/Face_Recognition/blob/master/Results/%233.png)
 
 
 ## Overview:
